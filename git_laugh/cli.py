@@ -10,9 +10,6 @@ from pathlib import Path
 import shutil
 from .player import play_random_sound
 
-HOOKS_DIR = Path.home() / ".git-laugh-hooks"
-SOUNDS_DIR = Path.home() / ".git-laugh-sounds"
-
 @click.group()
 def cli():
     """
@@ -32,6 +29,9 @@ def play():
 @cli.command()
 def install():
     """Install Git hooks and copy sounds."""
+    HOOKS_DIR = Path.home() / ".git-laugh-hooks"
+    SOUNDS_DIR = Path.home() / ".git-laugh-sounds"
+
     # 1. Ensure hooks dir exists
     HOOKS_DIR.mkdir(parents=True, exist_ok=True)
 
