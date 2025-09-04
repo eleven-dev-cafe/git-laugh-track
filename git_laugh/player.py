@@ -5,38 +5,24 @@ Responsible for selecting and playing a random sound.
 """
 
 import random
-import os
 from pathlib import Path
 from playsound import playsound
 
 def play_random_sound():
     """
-    Plays a random .mp3 file from either:
-    1. Project 'sounds/' folder (relative to this script)
-    2. User's home '.git-laugh-sounds' folder
+    Plays a random .mp3 file from ~/.git-laugh-sounds.
 
     Steps:
-    1. Check project sounds folder first.
-    2. If empty, check ~/.git-laugh-sounds.
+    1. Ensure ~/.git-laugh-sounds exists.
+    2. List all .mp3 files inside.
     3. Pick a random file.
     4. Play it using playsound.
     """
-    # 1. Project sounds folder (relative to this script)
-    base_dir = Path(__file__).parent
-    project_sounds = base_dir.parent / "sounds"
-
-    # 2. User home sounds folder
-    home_sounds = Path.home() / ".git-laugh-sounds"
-
-    # Prefer project sounds if available
-    if project_sounds.exists() and any(project_sounds.glob("*.mp3")):
-        sound_dir = project_sounds
-    else:
-        sound_dir = home_sounds
+    sound_dir = Path.home() / ".git-laugh-sounds"
 
     # Ensure the directory exists
     if not sound_dir.exists():
-        print(f"❌ No sounds folder found at {sound_dir}")
+        print(f"❌ Sounds folder not found at {sound_dir}")
         return
 
     # Collect all mp3 files
