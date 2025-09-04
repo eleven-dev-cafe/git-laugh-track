@@ -7,6 +7,7 @@ Responsible for selecting and playing a random sound.
 import random
 from pathlib import Path
 from playsound import playsound
+import threading
 
 def play_random_sound():
     """
@@ -36,6 +37,8 @@ def play_random_sound():
 
     # Play the file
     try:
-        playsound(str(sound_file))
+        # Play in background
+        threading.Thread(target=playsound, args=(str(sound_file),), daemon=True).start()
+        return True
     except Exception as e:
         print(f"⚠️ Could not play sound: {e}")
