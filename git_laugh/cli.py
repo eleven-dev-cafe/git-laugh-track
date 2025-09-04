@@ -4,10 +4,14 @@ cli.py
 Defines the CLI tool `git-laugh` using the Click library.
 """
 
+import os
 import click
 from pathlib import Path
 import shutil
 from .player import play_random_sound
+
+HOOKS_DIR = Path.home() / ".git-laugh-hooks"
+SOUNDS_DIR = Path.home() / ".git-laugh-sounds"
 
 @click.group()
 def cli():
@@ -27,23 +31,40 @@ def play():
 
 @cli.command()
 def install():
-    """
-    Install Git hooks globally.
+    """Install Git hooks and copy sounds."""
+    # 1. Ensure hooks dir exists
+    HOOKS_DIR.mkdir(parents=True, exist_ok=True)
 
-    - Creates ~/.git-laugh-hooks directory.
-    - Copies post-commit and post-push hooks.
-    - Users must also set `core.hooksPath` via global-install.sh.
-    """
-    hooks_dir = Path.home() / ".git-laugh-hooks"
-    hooks_dir.mkdir(parents=True, exist_ok=True)
-
-    # Repo's hooks folder (relative to package location)
+    # 2. Copy hook scripts
     repo_hooks = Path(__file__).resolve().parent.parent / "hooks"
-
     for hook in ["post-commit", "post-push"]:
-        shutil.copy(repo_hooks / hook, hooks_dir / hook)
+        src = repo_hooks / hook
+        dst = HOOKS_DIR / hook
+        if src.exists():
+            shutil.copy2(src, dst)
+            click.echo(f"✅ Hooks installed in {HOOKS_DIR}")
+        else:
+            click.echo("hooks does not exist")
 
-    print(f"✅ Hooks installed in {hooks_dir}")
+    # 3. Configure git to use this hooks path
+    os.system(f'git config --global core.hooksPath "{HOOKS_DIR}"')
+
+    # 4. Ensure sounds dir exists
+    SOUNDS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # 5. Copy sounds from project `sounds/` folder
+    project_sounds = Path(__file__).resolve().parent.parent / "sounds"
+    if project_sounds.exists():
+        mp3_files = list(project_sounds.glob("*.mp3"))
+        for file in mp3_files:
+            shutil.copy2(file, SOUNDS_DIR / file.name)
+            click.echo(f"✅ Sounds installed in {SOUNDS_DIR}")
+
+    else:
+        print("❌ Project sound does not exist")
+
+    click.echo(f"✅ Hooks installed in {HOOKS_DIR}")
+    
 
 @cli.command()
 def uninstall():
@@ -58,3 +79,10 @@ def uninstall():
         print("❌ Hooks removed")
     else:
         print("⚠️ No hooks found")
+
+    sound_dir = Path.home() / ".git-laugh-sounds"
+    if sound_dir.exists():
+        shutil.rmtree(hooks_dir)
+        print("❌ Hooks removed")
+    else:
+        print("⚠️ No sound present")
