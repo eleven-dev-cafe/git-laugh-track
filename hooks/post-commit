@@ -1,0 +1,6 @@
+#!/bin/sh
+# Git Laugh Track - post-commit hook
+# Triggered after every successful `git commit`.
+# Plays a random sound via the git-laugh CLI tool.
+
+git-laugh play
