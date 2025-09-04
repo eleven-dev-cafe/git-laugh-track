@@ -1,6 +1,21 @@
-#!/bin/sh
-# Git Laugh Track - post-push hook
-# Triggered after every successful `git push`.
-# Plays a random sound via the git-laugh CLI tool.
+#!/bin/bash
+# post-push
+# Cross-platform Git Laugh Track hook
 
-git-laugh play
+# Detect OS
+OS=$(uname 2>/dev/null || echo "Windows")
+
+# Set paths
+if [[ "$OS" == "Linux" || "$OS" == "Darwin" ]]; then
+    CLI_CMD="git-laugh"
+else
+    CLI_CMD="E:/TIGER/AppData/Python/Python313/Scripts/git-laugh.exe"
+fi
+
+# Play a sound
+if command -v "$CLI_CMD" >/dev/null 2>&1; then
+    "$CLI_CMD" play &
+else
+    echo "❌ git-laugh CLI not found. Run: pip install ."
+fi
+
