@@ -4,7 +4,6 @@ player.py
 Responsible for selecting and playing a random sound.
 """
 
-import asyncio
 import random
 from pathlib import Path
 from playsound import playsound
@@ -38,7 +37,7 @@ def play_random_sound():
     # Play the file
     try:
         # playsound an audio
-        asyncio.run(playsound(str(sound_file)))
-        
+        playsound(str(sound_file))
+
     except Exception as e:
         print(f"⚠️ Could not play sound: {e}")
