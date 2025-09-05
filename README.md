@@ -74,6 +74,7 @@ Install dev dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
 Run tests:
 ```bash
 pytest
@@ -95,7 +96,6 @@ Join us to discuss ideas, share feedback, and coordinate contributions:
 ## 📜 License
 
 This project is licensed under the `BSD 3-Clause` License – see the [LICENSE](LICENSE) file for details.
-
 
 ## 💡 Inspiration
 

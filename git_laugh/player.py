@@ -33,10 +33,11 @@ def play_random_sound():
 
     # Pick a random sound
     sound_file = random.choice(files)
-    print(f"▶ Playing: {sound_file.name}")
 
     # Play the file
     try:
+        # playsound an audio
         playsound(str(sound_file))
+
     except Exception as e:
         print(f"⚠️ Could not play sound: {e}")
