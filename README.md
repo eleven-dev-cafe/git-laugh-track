@@ -96,7 +96,6 @@ Join us to discuss ideas, share feedback, and coordinate contributions:
 
 This project is licensed under the `BSD 3-Clause` License – see the [LICENSE](LICENSE) file for details.
 
-
 ## 💡 Inspiration
 
 **Because coding is serious business… but your commits don’t have to be 🤣**
