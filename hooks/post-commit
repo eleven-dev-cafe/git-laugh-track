@@ -12,7 +12,7 @@ if [[ "$OS" == "Linux" || "$OS" == "Darwin" ]]; then
 else
     # Windows
     # Full path to installed git-laugh.exe
-    CLI_CMD="E:\TIGER\AppData/Python/Python313/Scripts/git-laugh.exe"
+    CLI_CMD="git-laugh"
 fi
 
 # Play a sound

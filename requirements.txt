@@ -1,5 +1,7 @@
 # Dependencies required for Git Laugh Track
 # Install with: pip install -r requirements.txt
 
-playsound==1.2.2   # Cross-platform audio playback
-click>=8.0         # For building the CLI tool
+click>=8.0           # For building CLI commands
+playsound==1.2.2     # For playing audio files
+colorama>=0.4.6      # Optional, for colored terminal output (used by Click)
+

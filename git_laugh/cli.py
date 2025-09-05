@@ -42,7 +42,8 @@ def install():
         dst = HOOKS_DIR / hook
         if src.exists():
             shutil.copy2(src, dst)
-            click.echo(f"✅ Hooks installed in {HOOKS_DIR}")
+            print(f"Hook with name {hook} Installed")
+
         else:
             click.echo("hooks does not exist")
 
@@ -58,12 +59,13 @@ def install():
         mp3_files = list(project_sounds.glob("*.mp3"))
         for file in mp3_files:
             shutil.copy2(file, SOUNDS_DIR / file.name)
-            click.echo(f"✅ Sounds installed in {SOUNDS_DIR}")
+            print(f"Sound with name {file} installed")
 
     else:
         print("❌ Project sound does not exist")
 
-    click.echo(f"✅ Hooks installed in {HOOKS_DIR}")
+    click.echo(f"✅ Required Hooks installed in {HOOKS_DIR}")
+    click.echo(f"✅ All Sounds installed in {SOUNDS_DIR}")
     
 
 @cli.command()
@@ -76,13 +78,14 @@ def uninstall():
     hooks_dir = Path.home() / ".git-laugh-hooks"
     if hooks_dir.exists():
         shutil.rmtree(hooks_dir)
-        print("❌ Hooks removed")
+        print(f"✅ All Hooks uninstalled from {hooks_dir}")
     else:
         print("⚠️ No hooks found")
 
     sound_dir = Path.home() / ".git-laugh-sounds"
     if sound_dir.exists():
-        shutil.rmtree(hooks_dir)
-        print("❌ Hooks removed")
+        shutil.rmtree(sound_dir)
+        print("✅ All Sounds uninstalled from {sound_dir}")
     else:
         print("⚠️ No sound present")
+        
