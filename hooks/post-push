@@ -2,25 +2,14 @@
 # post-push
 # Cross-platform Git Laugh Track hook
 
-# Detect OS
-OS=$(uname 2>/dev/null || echo "Windows")
-
 # Set CLI command
-if [ "$OS" = "Linux" ] || [ "$OS" = "Darwin" ]; then
-    CLI_CMD="git-laugh"
-else
-    # Full path for Windows
-    CLI_CMD="E:/TIGER/AppData/Python/Python313/Scripts/git-laugh.exe"
-fi
+CLI_CMD="git-laugh"
 
-# Debug logging (optional)
-echo "Running hook with CLI_CMD=$CLI_CMD" >> "$HOME/git-laugh-hook.log"
-
-# Run the command
-if [ -x "$CLI_CMD" ]; then
-    "$CLI_CMD" play >/dev/null 2>&1 &
+# Play a sound
+if command -v "$CLI_CMD" >/dev/null 2>&1; then
+    "$CLI_CMD" play
 else
-    echo "❌ git-laugh CLI not found at $CLI_CMD"
+    echo "❌ git-laugh CLI not found. Run: pip install ."
 fi
 
 
