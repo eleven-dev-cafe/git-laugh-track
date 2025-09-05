@@ -32,26 +32,26 @@ This installs the CLI command git-laugh.
 
 </br>
 
-## ⚙️ Setup Git Hooks
-Install globally so all repos get the funny sounds:
-```bash
-./scripts/global-install.sh
-```
-
-Uninstall later if you want:
-```bash
-./scripts/uninstall.sh
-```
-</br>
-
 ## 🎮 Usage
 
-Once installed, you can use the CLI tool:
+**Once installed, you can use the CLI tool:**
+
+1. Setup Git hooks and sounds for laugh sounds
 ```bash
-git-laugh install   # Setup Git hooks for laugh sounds
-git-laugh uninstall # Remove Git hooks
-git-laugh play      # Play a random laugh sound manually
+git-laugh install   
+git-laugh play      
 ```
+
+2. Remove Git hooks and Sounds
+```bash
+git-laugh uninstall
+```
+
+3. Play a random laugh sound on each commit..
+```bash
+git-laugh play 
+```
+
 </br>
 
 ### Git workflow
