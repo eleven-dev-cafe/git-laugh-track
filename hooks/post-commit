@@ -2,18 +2,8 @@
 # post-commit
 # Cross-platform Git Laugh Track hook
 
-# Detect OS
-OS=$(uname 2>/dev/null || echo "Windows")
-
-# Set paths
-if [[ "$OS" == "Linux" || "$OS" == "Darwin" ]]; then
-    # Linux/macOS/WSL
-    CLI_CMD="git-laugh"
-else
-    # Windows
-    # Full path to installed git-laugh.exe
-    CLI_CMD="E:\TIGER\AppData/Python/Python313/Scripts/git-laugh.exe"
-fi
+# Full path to installed git-laugh.exe
+CLI_CMD="git-laugh"
 
 # Play a sound
 if command -v "$CLI_CMD" >/dev/null 2>&1; then
