@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 # post-push
 # Cross-platform Git Laugh Track hook
 
-# Set CLI command
+# Full path to installed git-laugh.exe
 CLI_CMD="git-laugh"
 
 # Play a sound
