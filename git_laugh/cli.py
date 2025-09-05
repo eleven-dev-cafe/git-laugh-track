@@ -59,7 +59,7 @@ def install():
         mp3_files = list(project_sounds.glob("*.mp3"))
         for file in mp3_files:
             shutil.copy2(file, SOUNDS_DIR / file.name)
-            print(f"Sound with name {file} installed")
+            print(f"Sound added at {file}")
 
     else:
         print("❌ Project sound does not exist")
