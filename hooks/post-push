@@ -11,5 +11,3 @@ if command -v "$CLI_CMD" >/dev/null 2>&1; then
 else
     echo "❌ git-laugh CLI not found. Run: pip install ."
 fi
-
-
