@@ -32,34 +32,33 @@ This installs the CLI command git-laugh.
 
 </br>
 
-## 🎮 Usage
+### 🎮 Usage
 
 **Once installed, you can use the CLI tool:**
 
-1. Setup Git hooks and sounds for laugh sounds
+Setup Git hooks and sounds for laugh sounds
 ```bash
-git-laugh install   
-git-laugh play      
+git-laugh install       
 ```
 
-2. Remove Git hooks and Sounds
+Remove Git hooks and Sounds
 ```bash
 git-laugh uninstall
 ```
 
-3. Play a random laugh sound on each commit..
+Play a random laugh sound on each commit..
 ```bash
 git-laugh play 
 ```
 
+### Git workflow
+- Run `git commit -m "fix bug"` → plays a random sound 🎶
+- Run `git push` → plays another random sound 
+
+
 </br>
 
-### Git workflow
-
-- Run `git commit -m "fix bug"` → plays a random sound 🎶
-- Run `git push` → plays another random sound 🎶
-
-## 🔊 Adding Sounds
+### 🔊 Adding Sounds
 
 Place `.mp3` files into your sound directory:
 - Default: `~/.git-laugh-sounds/`
@@ -67,6 +66,9 @@ Or add via CLI:
 ```bash
 git-laugh add funny.mp3
 ```
+> Reinstall `git-laugh` to copy sounds at defaults
+
+</br>
 
 ## 🛠 Development
 
