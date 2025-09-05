@@ -6,9 +6,7 @@ Responsible for selecting and playing a random sound.
 
 import random
 from pathlib import Path
-import time
 from playsound import playsound
-import threading
 
 def play_random_sound():
     """
