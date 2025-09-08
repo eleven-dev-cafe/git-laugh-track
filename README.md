@@ -6,8 +6,8 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/eleven-dev-cafe/.github/blob/main/CONTRIBUTING.md)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg)](https://www.python.org/)
 
-> Play funny sound effects on every **Git commit** or **push**.  
-> Turn boring commits into a party 🎉
+***Play funny sound effects on every **Git commit** or **push**.***  
+***Turn boring commits into a party 🎉***
 
 </br>
 
@@ -19,7 +19,7 @@ flowchart TD
     Git["🐙 Git Client"]
     PostCommitHook["🔗 post-commit Hook (hooks/post-commit)"]
     SoundFiles["🎵 Sitcom Laugh Tracks (~/.git-laugh-sounds/*.mp3)"]
-    AudioPlayer["🎧 Audio Player (paplay, mpg123, afplay)"]
+    AudioPlayer["🎧 Audio Player (playsound, mpg123, afplay)"]
     Installer["⚡ global-install.sh"]
     Uninstaller["🗑️ uninstall.sh"]
 
