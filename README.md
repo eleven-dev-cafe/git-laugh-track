@@ -11,6 +11,35 @@
 
 </br>
 
+## 🗺️ Architecture
+
+```mermaid
+flowchart TD
+    User["👤 User (Developer)"]
+    Git["🐙 Git Client"]
+    PostCommitHook["🔗 post-commit Hook (hooks/post-commit)"]
+    SoundFiles["🎵 Sitcom Laugh Tracks (~/.git-laugh-sounds/*.mp3)"]
+    AudioPlayer["🎧 Audio Player (paplay, mpg123, afplay)"]
+    Installer["⚡ global-install.sh"]
+    Uninstaller["🗑️ uninstall.sh"]
+
+    User --makes commit--> Git
+    Git --triggers--> PostCommitHook
+    PostCommitHook --selects random mp3--> SoundFiles
+    PostCommitHook --calls--> AudioPlayer
+    Installer --sets up hooks & sounds--> PostCommitHook
+    Installer --copies--> SoundFiles
+    Uninstaller --removes--> PostCommitHook
+    Uninstaller --removes--> SoundFiles
+```
+
+</br>
+
+## 🎥 Demo Video(Enable Sound 🔊) 
+https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6
+
+</br>
+
 ## ✨ Features
 - 🔊 Play a random `.mp3` from your sound library on **commit** and **push**  
 - ⚡ Works across **Linux, macOS, Windows (via WSL/terminal)**  
