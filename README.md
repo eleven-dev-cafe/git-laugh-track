@@ -11,6 +11,14 @@
 
 </br>
 
+## ✨ Features
+- 🔊 Play a random `.mp3` from your sound library on **commit** and **push**  
+- ⚡ Works across **Linux, macOS, Windows (via WSL/terminal)**  
+- 🎛 CLI commands to **play**, **add**, and **list** sounds  
+- 🔗 Easy setup via global Git hooks
+
+</br>
+
 ## 🗺️ Architecture
 
 ```mermaid
@@ -36,15 +44,7 @@ flowchart TD
 </br>
 
 ## 🎥 Demo Video(Enable Sound 🔊) 
-https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6
-
-</br>
-
-## ✨ Features
-- 🔊 Play a random `.mp3` from your sound library on **commit** and **push**  
-- ⚡ Works across **Linux, macOS, Windows (via WSL/terminal)**  
-- 🎛 CLI commands to **play**, **add**, and **list** sounds  
-- 🔗 Easy setup via global Git hooks  
+https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6  
 
 </br>
 
@@ -112,6 +112,11 @@ pytest
 ```
 
 </br>
+## 📜 License
+
+This project is licensed under the `BSD 3-Clause` License – see the [LICENSE](LICENSE) file for details.
+
+</br>
 
 ## 👨‍💻 Maintainer  
 `Gyarsilal Solanki`
@@ -124,10 +129,7 @@ Join us to discuss ideas, share feedback, and coordinate contributions:
 
 </br>
 
-## 📜 License
-
-This project is licensed under the `BSD 3-Clause` License – see the [LICENSE](LICENSE) file for details.
-
 ## 💡 Inspiration
 
 **Because coding is serious business… but your commits don’t have to be 🤣**
+***If you find this project helpful, consider giving it a ⭐ to support!***
