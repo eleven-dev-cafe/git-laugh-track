@@ -131,5 +131,5 @@ Join us to discuss ideas, share feedback, and coordinate contributions:
 
 ## 💡 Inspiration
 
-**Because coding is serious business… but your commits don’t have to be 🤣**
+**Because coding is serious business… but your commits don’t have to be 🤣**</br>
 ***If you find this project helpful, consider giving it a ⭐ to support!***
