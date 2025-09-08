@@ -36,6 +36,8 @@ def play_random_sound():
 
     # Play the file
     try:
+        # playsound an audio
         playsound(str(sound_file))
+
     except Exception as e:
         print(f"⚠️ Could not play sound: {e}")
