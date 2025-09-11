@@ -9,7 +9,7 @@
 ***Play funny sound effects on every **Git commit** or **push**.***  
 ***Turn boring commits into a party 🎉***
 
-</br>
+<br>
 
 ## ✨ Features
 - 🔊 Play a random `.mp3` from your sound library on **commit** and **push**  
@@ -17,7 +17,7 @@
 - 🎛 CLI commands to **play**, **add**, and **list** sounds  
 - 🔗 Easy setup via global Git hooks
 
-</br>
+<br>
 
 ## 🗺️ Architecture
 
@@ -41,12 +41,12 @@ flowchart TD
     Uninstaller --removes--> SoundFiles
 ```
 
-</br>
+<br>
 
 ## 🎥 Demo Video(Enable Sound 🔊) 
 https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6  
 
-</br>
+<br>
 
 ## 📦 Installation
 
@@ -59,7 +59,7 @@ pip install .
 ```
 This installs the CLI command git-laugh.
 
-</br>
+<br>
 
 ### 🎮 Usage
 
@@ -85,7 +85,7 @@ git-laugh play
 - Run `git push` → plays another random sound 
 
 
-</br>
+<br>
 
 ### 🔊 Adding Sounds
 
@@ -97,7 +97,7 @@ git-laugh add funny.mp3
 ```
 > Reinstall `git-laugh` to copy sounds at defaults
 
-</br>
+<br>
 
 ## 🛠 Development
 
@@ -111,12 +111,12 @@ Run tests:
 pytest
 ```
 
-</br>
+<br>
 ## 📜 License
 
 This project is licensed under the `BSD 3-Clause` License – see the [LICENSE](LICENSE) file for details.
 
-</br>
+<br>
 
 ## 👨‍💻 Developer  
 `Gyarsilal Solanki`
@@ -127,7 +127,7 @@ This project is licensed under the `BSD 3-Clause` License – see the [LICENSE](
 Join us to discuss ideas, share feedback, and coordinate contributions:  
 [![Join Discord](https://img.shields.io/discord/1405808666179014697?color=4CBB17&label=Join%20Us%20on%20Discord&logo=discord&logoColor=blue)](https://discord.gg/Zrc9x3ts)
 
-</br>
+<br>
 
 ## 💡 Inspiration
 
