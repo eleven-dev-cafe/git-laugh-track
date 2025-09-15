@@ -21,5 +21,3 @@ liberapay: gyarsilalsolanki011
 # Custom links (you can add UPI or BuyMeACoffee)
 custom:
   - "https://www.buymeacoffee.com/gyarsilal"
-  - "https://rzp.io/l/make_attendance_support" # Razorpay payment link
-  - "upi://pay?pa=gyarsilal@upi&pn=Gyarsilal%20Solanki"
