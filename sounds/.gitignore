@@ -3,6 +3,7 @@
 
 # Default sound to be pushed
 !mischievous-laugh.mp3
+!evil-laugh.mp3
 
 # Keep the folder itself under version control
 !.gitignore
