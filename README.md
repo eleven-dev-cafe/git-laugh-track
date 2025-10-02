@@ -6,7 +6,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/eleven-dev-cafe/.github/blob/main/CONTRIBUTING.md)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg)](https://www.python.org/)
 
-***Play funny sound effects on every **Git commit** or **push**.***  
+***Play funny sound effects on every **Git commit**.***  
 ***Turn boring commits into a party 🎉***
 
 </br>
@@ -41,7 +41,7 @@ https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6
 </br>
 
 ## ✨ Features
-- 🔊 Play a random `.mp3` from your sound library on **commit** and **push**  
+- 🔊 Play a random `.mp3` from your sound library on  git **commit**  
 - ⚡ Works across **Linux, macOS, Windows (via WSL/terminal)**  
 - 🎛 CLI commands to **play**, **add**, and **list** sounds  
 - 🔗 Easy setup via global Git hooks  
@@ -82,14 +82,14 @@ git-laugh play
 
 ### Git workflow
 - Run `git commit -m "fix bug"` → plays a random sound 🎶
-- Run `git push` → plays another random sound 
+- Run `git push` → plays another random sound(soon...) 
 
 
 </br>
 
 ### 🔊 Adding Sounds
 
-Place `.mp3` files into your sound directory:
+Place `.mp3` files into your `/sounds` directory
 - Default: `~/.git-laugh-sounds/`
 Or add via CLI:
 ```bash
