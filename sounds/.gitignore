@@ -1,5 +1,8 @@
 # Ignore all MP3 files in the sounds directory
 *.mp3
 
+# Default sound to be pushed
+!mischievous-laugh.mp3
+
 # Keep the folder itself under version control
 !.gitignore
