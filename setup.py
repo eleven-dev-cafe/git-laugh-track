@@ -10,11 +10,11 @@ setup(
     version="0.1.1",
     description="Play sounds on git commit and push events 🎶",
     author="Gyarsilal Solanki",
-    author_email="gyarsilalsolanki011@gmail.com",  # <-- replace with your email
+    author_email="gyarsilalsolanki.dev@gmail.com",  # <-- replace with your email
     url="https://github.com/eleven-dev-cafe/git-laugh-track",
     packages=find_packages(include=["git_laugh", "git_laugh.*"]),
     install_requires=[
-        "playsound==1.2.2",   # To play audio files
+        "playsound==1.3.0",   # To play audio files
         "click>=8.0"          # For CLI commands
     ],
     entry_points={
