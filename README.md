@@ -52,17 +52,17 @@ https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6
 ## 📦 Installation
 
 **Clone the repo and install it locally:**  
-Clone the repository
+1. Clone the repository
 ```bash
 git clone https://github.com/eleven-dev-cafe/git-laugh-track.git
 cd git-laugh-track
 ```
-Install dev dependencies:
+2. Install dev dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-Install the CLI command `git-laugh`
+3. Install the CLI command `git-laugh`
 ```bash
 pip install .
 ```
