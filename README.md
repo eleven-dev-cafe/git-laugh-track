@@ -67,7 +67,7 @@ pip install -r requirements.txt
 pip install .
 ```
 
-Uninstall the CLI command `git-laugh`
+You can also uninstall the CLI (if you’ve laughed enough)
 ```bash
 pip uninstall git-laugh-track
 ```
