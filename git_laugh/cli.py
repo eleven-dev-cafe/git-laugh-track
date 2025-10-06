@@ -87,3 +87,40 @@ def uninstall():
         click.echo(f"✅ Removed sounds from {sounds_dir}")
     else:
         click.echo("⚠️ No sounds to remove.")
+
+
+@cli.command()
+@click.argument("sound_files", nargs=-1, type=click.Path(exists=True, path_type=Path))
+def add(sound_files):
+    """
+    ➕ Add one or more sound files to the default Git Laugh sounds directory.
+
+    Example:
+        git-laugh add funny.mp3 cool.wav
+    """
+    SOUNDS_DIR = Path.home() / ".git-laugh-sounds"
+    SOUNDS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not sound_files:
+        click.echo("⚠️  Please provide at least one sound file to add.")
+        click.echo("Example: git-laugh add funny.mp3 cool.wav")
+        return
+
+    added = 0
+    for sound_file in sound_files:
+        if sound_file.suffix.lower() not in (".mp3", ".wav", ".ogg"):
+            click.echo(f"⚠️  Skipped (unsupported format): {sound_file.name}")
+            continue
+
+        try:
+            target = SOUNDS_DIR / sound_file.name
+            shutil.copy2(sound_file, target)
+            added += 1
+            click.echo(f"🎵 Added sound: {sound_file.name}")
+        except Exception as e:
+            click.echo(f"❌ Failed to add {sound_file.name}: {e}")
+
+    if added > 0:
+        click.echo(f"\n✅ {added} sound file(s) successfully added to {SOUNDS_DIR}")
+    else:
+        click.echo("⚠️  No sound files were added.")

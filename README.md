@@ -81,7 +81,7 @@ Place `.mp3` files into your `/sounds` directory
 
 Or add via CLI:
 ```bash
-git-laugh add funny.mp3
+git-laugh add <path-to-sound>
 ```
 
 <br>
