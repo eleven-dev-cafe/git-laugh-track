@@ -3,4 +3,4 @@ Git Laugh Track Package
 Initializes the package and defines the version.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"

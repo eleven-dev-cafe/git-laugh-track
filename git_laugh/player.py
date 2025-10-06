@@ -8,36 +8,37 @@ import random
 from pathlib import Path
 from playsound import playsound
 
-def play_random_sound():
+
+def play_random_sound(custom_path: Path | None = None):
     """
-    Plays a random .mp3 file from ~/.git-laugh-sounds.
+    Play a random sound from ~/.git-laugh-sounds (or a given path).
 
     Steps:
-    1. Ensure ~/.git-laugh-sounds exists.
-    2. List all .mp3 files inside.
-    3. Pick a random file.
-    4. Play it using playsound.
+    1️ Ensure sound directory exists
+    2️ List available .mp3/.wav/.ogg files
+    3️ Choose one randomly
+    4️ Play using playsound()
     """
-    sound_dir = Path.home() / ".git-laugh-sounds"
+    sound_dir = custom_path or (Path.home() / ".git-laugh-sounds")
+    AUDIO_EXTS = (".mp3", ".wav", ".ogg")
 
-    # Ensure the directory exists
+    # 1️⃣ Check folder existence
     if not sound_dir.exists():
-        print(f"❌ Sounds folder not found at {sound_dir}")
+        print(f"⚠️ Sounds folder not found at {sound_dir}")
         return
 
-    # Collect all mp3 files
-    files = list(sound_dir.glob("*.mp3"))
+    # 2️⃣ List audio files
+    files = [f for f in sound_dir.iterdir() if f.suffix.lower() in AUDIO_EXTS]
     if not files:
-        print(f"❌ No MP3 files found in {sound_dir}")
+        print(f"⚠️ No audio files found in {sound_dir}")
         return
 
-    # Pick a random sound
+    # 3️⃣ Pick random file
     sound_file = random.choice(files)
+    print(f"🎧 Now playing: {sound_file.name}")
 
-    # Play the file
+    # 4️⃣ Play sound
     try:
-        # playsound an audio
         playsound(str(sound_file))
-
     except Exception as e:
-        print(f"⚠️ Could not play sound: {e}")
+        print(f"⚠️ Could not play sound '{sound_file.name}': {e}")

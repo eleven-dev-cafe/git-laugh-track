@@ -6,25 +6,22 @@ Defines the CLI tool `git-laugh` using the Click library.
 
 import os
 import click
-from pathlib import Path
 import shutil
+from pathlib import Path
 from .player import play_random_sound
+
 
 @click.group()
 def cli():
-    """
-    🎶 Git Laugh Track CLI
-    Play random sounds on git commit.
-    """
+    """🎶 Git Laugh Track CLI — Play sounds on Git commits and pushes."""
     pass
+
 
 @cli.command()
 def play():
-    """
-    Play a random sound immediately.
-    Useful for testing that your setup works.
-    """
+    """Play a random sound immediately (for testing)."""
     play_random_sound()
+
 
 @cli.command()
 def install():
@@ -32,60 +29,61 @@ def install():
     HOOKS_DIR = Path.home() / ".git-laugh-hooks"
     SOUNDS_DIR = Path.home() / ".git-laugh-sounds"
 
-    # 1. Ensure hooks dir exists
+    # 1️⃣ Ensure target dirs exist
     HOOKS_DIR.mkdir(parents=True, exist_ok=True)
-
-    # 2. Copy hook scripts
-    repo_hooks = Path(__file__).resolve().parent.parent / "hooks"
-    for hook in ["post-commit", "post-push"]:
-        src = repo_hooks / hook
-        dst = HOOKS_DIR / hook
-        if src.exists():
-            shutil.copy2(src, dst)
-            print(f"Hook with name {hook} Installed")
-
-        else:
-            click.echo("hooks does not exist")
-
-    # 3. Configure git to use this hooks path
-    os.system(f'git config --global core.hooksPath "{HOOKS_DIR}"')
-
-    # 4. Ensure sounds dir exists
     SOUNDS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # 5. Copy sounds from project `sounds/` folder
-    project_sounds = Path(__file__).resolve().parent.parent / "sounds"
-    if project_sounds.exists():
-        mp3_files = list(project_sounds.glob("*.mp3"))
-        for file in mp3_files:
-            shutil.copy2(file, SOUNDS_DIR / file.name)
-            print(f"Sound added at {file}")
-
+    # 2️⃣ Copy hooks
+    repo_hooks = Path.cwd() / "hooks"
+    if not repo_hooks.exists():
+        click.echo(f"⚠️ No 'hooks/' directory found at {repo_hooks}")
     else:
-        print("❌ Project sound does not exist")
+        for hook in ["post-commit", "post-push"]:
+            src = repo_hooks / hook
+            dst = HOOKS_DIR / hook
+            if src.exists():
+                shutil.copy2(src, dst)
+                click.echo(f"✅ Installed hook: {hook}")
+            else:
+                click.echo(f"⚠️ Missing hook: {src}")
 
-    click.echo(f"✅ Required Hooks installed in {HOOKS_DIR}")
-    click.echo(f"✅ All Sounds installed in {SOUNDS_DIR}")
-    
+    # 3️⃣ Set global hooks path
+    os.system(f'git config --global core.hooksPath "{HOOKS_DIR}"')
+
+    # 4️⃣ Copy sounds
+    project_sounds = Path.cwd() / "sounds"
+    if not project_sounds.exists():
+        project_sounds.mkdir(exist_ok=True)
+        click.echo(f"📁 Created empty sounds folder: {project_sounds}")
+    else:
+        mp3_files = list(project_sounds.glob("*.mp3"))
+        if mp3_files:
+            for file in mp3_files:
+                shutil.copy2(file, SOUNDS_DIR / file.name)
+                click.echo(f"🎵 Copied sound: {file.name}")
+        else:
+            click.echo(f"⚠️ No .mp3 files found in {project_sounds}")
+
+    # ✅ Summary
+    click.echo("\n🎉 Installation Complete!")
+    click.echo(f"Hooks path : {HOOKS_DIR}")
+    click.echo(f"Sounds path: {SOUNDS_DIR}")
+
 
 @cli.command()
 def uninstall():
-    """
-    Uninstall global Git hooks.
-
-    - Removes ~/.git-laugh-hooks if it exists.
-    """
+    """Uninstall global Git hooks and sounds."""
     hooks_dir = Path.home() / ".git-laugh-hooks"
+    sounds_dir = Path.home() / ".git-laugh-sounds"
+
     if hooks_dir.exists():
         shutil.rmtree(hooks_dir)
-        print(f"✅ All Hooks uninstalled from {hooks_dir}")
+        click.echo(f"✅ Removed hooks from {hooks_dir}")
     else:
-        print("⚠️ No hooks found")
+        click.echo("⚠️ No hooks to remove.")
 
-    sound_dir = Path.home() / ".git-laugh-sounds"
-    if sound_dir.exists():
-        shutil.rmtree(sound_dir)
-        print(f"✅ All Sounds uninstalled from {sound_dir}")
+    if sounds_dir.exists():
+        shutil.rmtree(sounds_dir)
+        click.echo(f"✅ Removed sounds from {sounds_dir}")
     else:
-        print("⚠️ No sound present")
-        
+        click.echo("⚠️ No sounds to remove.")

@@ -51,14 +51,38 @@ https://github.com/user-attachments/assets/794d3f7e-eace-496e-8534-2134725aa4d6
 
 ## 📦 Installation
 
-Clone the repo and install it locally:
-
+**Clone the repo and install it locally:**  
+Clone the repository
 ```bash
 git clone https://github.com/eleven-dev-cafe/git-laugh-track.git
 cd git-laugh-track
+```
+Install dev dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+Install the CLI command `git-laugh`
+```bash
 pip install .
 ```
-This installs the CLI command git-laugh.
+
+Uninstall the CLI command `git-laugh`
+```bash
+pip uninstall git-laugh-track
+```
+
+<br>
+
+### 🔊 Adding Sounds
+
+Place `.mp3` files into your `/sounds` directory
+- Default: `~/.git-laugh-sounds/`
+
+Or add via CLI:
+```bash
+git-laugh add funny.mp3
+```
 
 <br>
 
@@ -84,33 +108,6 @@ git-laugh play
 ### Git workflow
 - Run `git commit -m "fix bug"` → plays a random sound 🎶
 - Run `git push` → plays another random sound(soon...) 
-
-
-<br>
-
-### 🔊 Adding Sounds
-
-Place `.mp3` files into your `/sounds` directory
-- Default: `~/.git-laugh-sounds/`  
-Or add via CLI:
-```bash
-git-laugh add funny.mp3
-```
-> Reinstall `git-laugh` to copy sounds at defaults
-
-<br>
-
-## 🛠 Development
-
-Install dev dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-Run tests:
-```bash
-pytest
-```
 
 <br>
 
