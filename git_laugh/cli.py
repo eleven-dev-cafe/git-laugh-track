@@ -14,7 +14,7 @@ from .player import play_random_sound
 def cli():
     """
     🎶 Git Laugh Track CLI
-    Play random sounds on git commit & push.
+    Play random sounds on git commit.
     """
     pass
 
@@ -28,7 +28,7 @@ def play():
 
 @cli.command()
 def install():
-    """Install Git hooks and copy sounds."""
+    """Install Git hooks and sounds."""
     HOOKS_DIR = Path.home() / ".git-laugh-hooks"
     SOUNDS_DIR = Path.home() / ".git-laugh-sounds"
 
