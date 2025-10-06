@@ -85,7 +85,7 @@ def uninstall():
     sound_dir = Path.home() / ".git-laugh-sounds"
     if sound_dir.exists():
         shutil.rmtree(sound_dir)
-        print("✅ All Sounds uninstalled from {sound_dir}")
+        print(f"✅ All Sounds uninstalled from {sound_dir}")
     else:
         print("⚠️ No sound present")
         
