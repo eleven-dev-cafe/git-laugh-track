@@ -11,14 +11,6 @@
 
 <br>
 
-## ✨ Features
-- 🔊 Play a random `.mp3` from your sound library on **commit** and **push**  
-- ⚡ Works across **Linux, macOS, Windows (via WSL/terminal)**  
-- 🎛 CLI commands to **play**, **add**, and **list** sounds  
-- 🔗 Easy setup via global Git hooks
-
-<br>
-
 ## 🗺️ Architecture
 
 ```mermaid
@@ -99,7 +91,7 @@ git-laugh play
 ### 🔊 Adding Sounds
 
 Place `.mp3` files into your `/sounds` directory
-- Default: `~/.git-laugh-sounds/`
+- Default: `~/.git-laugh-sounds/`  
 Or add via CLI:
 ```bash
 git-laugh add funny.mp3
