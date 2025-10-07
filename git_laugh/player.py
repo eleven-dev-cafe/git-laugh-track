@@ -9,7 +9,7 @@ from pathlib import Path
 from playsound import playsound
 
 
-def play_random_sound(custom_path: Path | None = None):
+def play_random_sound():
     """
     Play a random sound from ~/.git-laugh-sounds (or a given path).
 
@@ -19,7 +19,7 @@ def play_random_sound(custom_path: Path | None = None):
     3️ Choose one randomly
     4️ Play using playsound()
     """
-    sound_dir = custom_path or (Path.home() / ".git-laugh-sounds")
+    sound_dir = (Path.home() / ".git-laugh-sounds")
     AUDIO_EXTS = (".mp3", ".wav", ".ogg")
 
     # 1️⃣ Check folder existence
@@ -35,6 +35,7 @@ def play_random_sound(custom_path: Path | None = None):
 
     # 3️⃣ Pick random file
     sound_file = random.choice(files)
+    print(f"🎧 Now playing: {sound_file.name}")
 
     # 4️⃣ Play sound
     try:
