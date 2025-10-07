@@ -24,13 +24,13 @@ def play_random_sound():
 
     # 1️⃣ Check folder existence
     if not sound_dir.exists():
-        print(f"⚠️ Sounds folder not found at {sound_dir}")
+        print(f"⚠️  Sounds folder not found at {sound_dir}")
         return
 
     # 2️⃣ List audio files
     files = [f for f in sound_dir.iterdir() if f.suffix.lower() in AUDIO_EXTS]
     if not files:
-        print(f"⚠️ No audio files found in {sound_dir}")
+        print(f"⚠️  No audio files found in {sound_dir}")
         return
 
     # 3️⃣ Pick random file
@@ -40,4 +40,4 @@ def play_random_sound():
     try:
         playsound(str(sound_file))
     except Exception as e:
-        print(f"⚠️ Could not play sound '{sound_file.name}': {e}")
+        print(f"⚠️  Could not play sound '{sound_file.name}': {e}")
