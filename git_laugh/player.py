@@ -35,7 +35,6 @@ def play_random_sound():
 
     # 3️⃣ Pick random file
     sound_file = random.choice(files)
-    print(f"🎧 Now playing: {sound_file.name}")
 
     # 4️⃣ Play sound
     try:
