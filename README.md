@@ -9,7 +9,7 @@
 ***Play funny sound effects on every **Git commit**.***  
 ***Turn boring commits into a party 🎉***
 
-<br>
+<br>  
 
 ## 🗺️ Architecture
 
