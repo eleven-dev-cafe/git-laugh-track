@@ -35,9 +35,11 @@ jobs:
 
   review-and-pypi:
     runs-on: ubuntu-latest
-    needs: build-and-testpypi
+    needs: build-and-testpypi 
+
     environment:
       name: production  # Requires manual approval in GitHub
+      
     steps:
       - uses: actions/checkout@v4
 
